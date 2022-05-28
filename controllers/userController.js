@@ -18,7 +18,11 @@ exports.getUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.getUserByToken = catchAsync(async (req, res, next) => {
-  const rows = await User.findByPk(req.user.id);
+  const rows = await User.findOne({
+    where: {
+      id: req.user.id,
+    },
+  });
 
   res.status(200).json({
     status: "success",

@@ -5,7 +5,7 @@ const userController = require("../../controllers/userController");
 
 const auth = require("../../middlewares/auth");
 
-router.route("/").get(auth("user"), userController.getUsers);
+router.route("/").get(auth("admin"), userController.getUsers);
 router.route("/session").get(auth(), userController.getUserByToken);
 
 module.exports = router;

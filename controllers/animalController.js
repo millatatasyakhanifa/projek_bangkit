@@ -54,10 +54,10 @@ exports.deleteAnimal = catchAsync(async (req, res, next) => {
 exports.updateAnimal = catchAsync(async (req, res, next) => {
   const rows = await Animal.update(
     { name: req.body.name },
-    // { animalType: req.body.animalType },
-    // { health: req.body.health },
-    // { personality: req.body.personality },
-    // { grooming: req.body.grooming },
+    { animalType: req.body.animalType },
+    { health: req.body.health },
+    { personality: req.body.personality },
+    { grooming: req.body.grooming },
     {
       where: {
         id: req.params.id,
@@ -75,6 +75,22 @@ exports.updateAnimal = catchAsync(async (req, res, next) => {
 
 exports.getAnimalById = catchAsync(async (req, res, next) => {
   const rows = await Animal.findByPk(req.params.id);
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      categories: rows,
+    },
+  });
+});
+
+exports.getAnimalByName = catchAsync(async (req, res, next) => {
+  console.log("nama:" + req.params.name);
+  const rows = await Animal.findOne({
+    where: {
+      name: req.query.name,
+    },
+  });
 
   res.status(200).json({
     status: "success",

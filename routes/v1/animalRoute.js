@@ -16,4 +16,6 @@ router
   .put(animalController.updateAnimal)
   .get(animalController.getAnimalById);
 
+router.route("/key/name").get(animalController.getAnimalByName);
+
 module.exports = router;
