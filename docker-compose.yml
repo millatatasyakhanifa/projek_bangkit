@@ -15,28 +15,32 @@ services:
       - ./public:/app/public
       - ./app/logs:/app/app/logs
     env_file:
-      - .env.docker
-
+      - .env.example
     networks:
-      - kasisolusinetwork
-  
+      - bangkitnetwork
+    depends_on:
+      mysqldb:
+        condition: service_healthy
   mysqldb:
-    image: mysql:5.7.36
+    image: mariadb:10.4.25
     container_name: mysqldb
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - ./mysql_docker:/var/lib/mysql
       - ./mysql_docker_custom:/etc/mysql/conf.d
+      - ./mysql_docker_init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: satuduatiga
-      MYSQL_DATABASE: bangkit
+      MYSQL_DATABASE: p_bangkit
       MYSQL_USER: bangkit
       MYSQL_PASSWORD: satuduatiga
     ports:
       - '3306:3306'
     restart: always
+    healthcheck:
+      test: "exit 0"
     networks:
-      - kasisolusinetwork
+      - bangkitnetwork
 
   phpmyadmin:
     image: phpmyadmin:5.1.1
@@ -49,8 +53,8 @@ services:
       PMA_PORTS: 3306
       PMA_HOST: mysqldb
     networks:
-      - kasisolusinetwork
+      - bangkitnetwork
 
 networks:
-  kasisolusinetwork:
+  bangkitnetwork:
     external: true
