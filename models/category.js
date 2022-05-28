@@ -24,6 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Category.sync();
+  //Category.sync();
   return Category;
 };
