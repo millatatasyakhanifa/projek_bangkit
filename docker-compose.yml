@@ -1,0 +1,56 @@
+version: '3.7'
+
+# restart: on-failure
+services:
+  nodejs:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: nodejs
+    expose:
+      - '5001'
+    ports:
+      - 5001:5001
+    volumes:
+      - ./public:/app/public
+      - ./app/logs:/app/app/logs
+    env_file:
+      - .env.docker
+
+    networks:
+      - kasisolusinetwork
+  
+  mysqldb:
+    image: mysql:5.7.36
+    container_name: mysqldb
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql_docker:/var/lib/mysql
+      - ./mysql_docker_custom:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: satuduatiga
+      MYSQL_DATABASE: bangkit
+      MYSQL_USER: bangkit
+      MYSQL_PASSWORD: satuduatiga
+    ports:
+      - '3306:3306'
+    restart: always
+    networks:
+      - kasisolusinetwork
+
+  phpmyadmin:
+    image: phpmyadmin:5.1.1
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8181:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_PORTS: 3306
+      PMA_HOST: mysqldb
+    networks:
+      - kasisolusinetwork
+
+networks:
+  kasisolusinetwork:
+    external: true
