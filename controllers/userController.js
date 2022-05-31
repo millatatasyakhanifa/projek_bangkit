@@ -32,3 +32,21 @@ exports.getUserByToken = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+exports.updateBio = catchAsync(async (req, res, next) => {
+  const rows = await User.update(
+    { bio: req.body.bio },
+    {
+      where: {
+        id: req.user.id,
+      },
+    }
+  );
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      categories: rows,
+    },
+  });
+});

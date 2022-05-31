@@ -50,11 +50,17 @@ const loginWithEmailAndPassword = async (body) => {
   });
 
   // 3) check if user not found
+
+  console.log(body.password);
+  console.log(user.comparePassword(body.password, user.password));
   if (!user) {
     throw new AppError("Invalid email", httpStatus.UNAUTHORIZED);
-  } else if (!user.comparePassword(body.password, user.password)) {
+  } else if (!(await user.comparePassword(body.password, user.password))) {
     throw new AppError("Invalid password", httpStatus.UNAUTHORIZED);
-  } else if (!user && !user.comparePassword(body.password, user.password)) {
+  } else if (
+    !user &&
+    !(await user.comparePassword(body.password, user.password))
+  ) {
     throw new AppError("Invalid email & password", httpStatus.UNAUTHORIZED);
   }
 

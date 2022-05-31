@@ -53,11 +53,13 @@ exports.deleteAnimal = catchAsync(async (req, res, next) => {
 
 exports.updateAnimal = catchAsync(async (req, res, next) => {
   const rows = await Animal.update(
-    { name: req.body.name },
-    { animalType: req.body.animalType },
-    { health: req.body.health },
-    { personality: req.body.personality },
-    { grooming: req.body.grooming },
+    {
+      name: req.body.name,
+      animalType: req.body.animalType,
+      health: req.body.health,
+      personality: req.body.personality,
+      grooming: req.body.grooming,
+    },
     {
       where: {
         id: req.params.id,
