@@ -26,6 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  //Post.sync({ alter: true });
+  //Post.sync();
   return Post;
 };

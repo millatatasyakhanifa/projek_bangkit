@@ -3,8 +3,6 @@ const router = express.Router();
 
 const animalController = require("../../controllers/animalController");
 
-const auth = require("../../middlewares/auth");
-
 router
   .route("/")
   .get(animalController.getAnimal)

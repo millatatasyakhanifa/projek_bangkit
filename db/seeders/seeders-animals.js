@@ -51,7 +51,7 @@ data.push({
     "Golden Retriever harus disikat dan dimandikan secara teratur untuk menghilangkan kotoran. Seperti kebanyakan anjing retriever, Golden menyukai air. Saat Golden Anda basah, bilas dia di air tawar untuk menghilangkan klorin, garam, atau kotoran danau dari mantelnya, yang semuanya dapat mengeringkan atau merusak mantelnya. Jaga agar telinganya tetap kering untuk mencegah infeksi, dan gunakan pembersih telinga yang direkomendasikan oleh dokter hewan Anda setelah ia berenang. Sisanya adalah perawatan penting. Potong kukunya sesuai kebutuhan, biasanya setiap beberapa minggu, dan gosok giginya untuk kesehatan yang baik dan nafas yang segar.",
 });
 data.push({
-  name: "Siberian Husky",
+  name: "Husky",
   animalType: "Dog",
   personality:
     "Siberian husky bukan jenis anjing penjaga. Mereka adalah anjing yang ramah dan lembut, tidak terlalu curiga terhadap orang asing, tidak agresif terhadap anjing lain, dan memiliki kecerdasan, keinginan, dan selera humor yang baik.",
@@ -61,7 +61,7 @@ data.push({
     'Siberian cukup mudah untuk dirawat. Di luar musim rontok, sikat dia sesekali dengan sikat yang lebih licin untuk menghilangkan rambut mati. Pangkas rambut di antara alas kaki. Itu saja. Mandi jarang diperlukan. Siberian adalah anjing yang sangat bersih dengan sedikit atau tanpa bau. Sisanya adalah perawatan dasar. Potong kukunya sesuai kebutuhan, biasanya setiap satu atau dua minggu jika dia tidak memakainya secara alami dengan semua aktivitasnya. Sikat giginya secara teratur dengan pasta gigi hewan peliharaan yang disetujui dokter hewan untuk kesehatan secara keseluruhan dan napas segar. Sekali atau dua kali setahun, ia menjalani proses yang disebut "meniup mantel." Selama periode ini, Anda mungkin merasa bahwa itu adalah rambut abu-abu dan putih yang turun salju. Pisau penumpah atau penggaruk mantel akan menjadi sekutu terbaik Anda.',
 });
 data.push({
-  name: "Labrador Retriever",
+  name: "Labrador",
   animalType: "Dog",
   personality:
     "Labrador ramah dan penurut, bersemangat untuk menyenangkan, dan cenderung tidak agresif terhadap orang atau hewan lain. Labrador aktif, Labrador suka basah, dan Labrador suka makan.",

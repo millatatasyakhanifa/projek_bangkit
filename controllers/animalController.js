@@ -69,9 +69,6 @@ exports.updateAnimal = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: {
-      categories: rows,
-    },
   });
 });
 
@@ -94,10 +91,5 @@ exports.getAnimalByName = catchAsync(async (req, res, next) => {
     },
   });
 
-  res.status(200).json({
-    status: "success",
-    data: {
-      categories: rows,
-    },
-  });
+  res.status(200).json(rows);
 });
