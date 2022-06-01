@@ -4,6 +4,7 @@ const userRoute = require("./userRoute");
 const categoryRoute = require("./categoryRoute");
 const animalRoute = require("./animalRoute");
 const postRoute = require("./postRoute");
+const predictRoute = require("./predictRoute");
 
 const router = express.Router();
 
@@ -28,6 +29,10 @@ const defaultRoutes = [
   {
     path: "/posts",
     route: postRoute,
+  },
+  {
+    path: "/predict",
+    route: predictRoute,
   },
 ];
 
