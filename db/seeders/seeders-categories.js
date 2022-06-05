@@ -4,7 +4,7 @@ data.push({
   name: "Story",
 });
 data.push({
-  name: "Reading",
+  name: "breeding",
 });
 data.push({
   name: "Adopsi",
