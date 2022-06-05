@@ -10,7 +10,9 @@ const { tokenTypes } = require("../config/tokens");
  * @returns New User
  */
 const registerNewUser = async (body) => {
-  const { name, bio, email, phoneNumber, photo, password } = body;
+  var { name, bio, email, phoneNumber, photo, password } = body;
+
+  photo = `${process.env.BASE_URL}user/${photo}`;
 
   const user = await User.create({
     name,

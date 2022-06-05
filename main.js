@@ -85,4 +85,6 @@ app.all("*", (req, res, next) => {
 // Error handle middleware
 app.use(globalErrorHandler);
 
+app.use(express.static("public"));
+
 module.exports = app;

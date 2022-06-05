@@ -47,3 +47,19 @@ exports.updateBio = catchAsync(async (req, res, next) => {
     status: "success",
   });
 });
+
+exports.updatePhoto = catchAsync(async (req, res, next) => {
+  if (req.file) req.body["photo"] = req.file.filename;
+  const rows = await User.update(
+    { photo: `${process.env.BASE_URL}user/${req.file.filename}` },
+    {
+      where: {
+        id: req.user.id,
+      },
+    }
+  );
+
+  res.status(200).json({
+    status: "success",
+  });
+});

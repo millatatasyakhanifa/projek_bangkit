@@ -3,6 +3,7 @@ const { Post, Category } = require("../models");
 const { pagination } = require("../utils/helper");
 const { Sequelize } = require("sequelize");
 const sequelize = Sequelize;
+const { getFirestore } = require("firebase-admin/firestore");
 
 exports.getPosts = catchAsync(async (req, res, next) => {
   const rows = await Post.findAll({
@@ -39,11 +40,19 @@ exports.getPostsByCategoryId = catchAsync(async (req, res, next) => {
 });
 
 exports.createPost = catchAsync(async (req, res, next) => {
+  const db = getFirestore();
+  var today = new Date();
+
+  const doc = await db.collection("feeds").add({
+    date: today,
+  });
+
   if (req.file) req.body["photo"] = req.file.filename;
   const rows = await Post.create({
     categoryId: req.body.categoryId,
     description: req.body.description,
-    photo: req.body.photo,
+    photo: `${process.env.BASE_URL}feeds/${req.body.photo}`,
+    idFeeds: doc.id,
   });
 
   res.status(200).json({
