@@ -53,6 +53,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
     description: req.body.description,
     photo: `${process.env.BASE_URL}feeds/${req.body.photo}`,
     idFeeds: doc.id,
+    userName: req.user.name,
   });
 
   res.status(200).json({

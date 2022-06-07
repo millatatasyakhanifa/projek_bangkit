@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../../middlewares/auth");
 
 const {
   createPost,
@@ -13,6 +14,7 @@ const { uploadSingle } = require("../../utils/files");
 
 router.post(
   "/feed",
+  auth(),
   uploadSingle("photo", "photo", "./public/feeds"),
   createPost
 );

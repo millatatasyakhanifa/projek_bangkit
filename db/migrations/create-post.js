@@ -5,12 +5,11 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
-        unique: true,
         type: Sequelize.INTEGER,
+        primaryKey: true,
       },
       categoryId: {
         type: Sequelize.STRING,
-        primaryKey: true,
       },
       description: {
         type: Sequelize.TEXT,
@@ -19,6 +18,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       idFeeds: {
+        type: Sequelize.STRING,
+        unique: true,
+      },
+      userName: {
         type: Sequelize.STRING,
       },
       createdAt: {
