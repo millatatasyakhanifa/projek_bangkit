@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       bio: DataTypes.STRING,
+      pet: DataTypes.STRING,
       email: {
         type: DataTypes.STRING,
         unique: { msg: "Email address already in use!" },
