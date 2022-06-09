@@ -14,7 +14,7 @@ exports.getAnimal = catchAsync(async (req, res, next) => {
     status: "success",
     results: rows.length,
     data: {
-      categories: rows,
+      animals: rows,
     },
   });
 });
@@ -31,7 +31,7 @@ exports.createAnimal = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      categories: rows,
+      animals: rows,
     },
   });
 });
@@ -75,7 +75,7 @@ exports.getAnimalById = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      categories: rows,
+      animals: rows,
     },
   });
 });

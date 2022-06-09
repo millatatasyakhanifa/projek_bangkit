@@ -15,7 +15,7 @@ exports.getPosts = catchAsync(async (req, res, next) => {
     status: "success",
     results: rows.length,
     data: {
-      categories: rows,
+      posts: rows,
     },
   });
 });
@@ -34,7 +34,7 @@ exports.getPostsByCategoryId = catchAsync(async (req, res, next) => {
     status: "success",
     results: rows.length,
     data: {
-      categories: rows,
+      posts: rows,
     },
   });
 });
@@ -61,7 +61,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      categories: rows,
+      posts: rows,
     },
   });
 });
@@ -88,7 +88,7 @@ exports.getPostById = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      categories: rows,
+      posts: rows,
     },
   });
 });
