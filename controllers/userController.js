@@ -23,7 +23,6 @@ exports.getUserByToken = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    results: rows.length,
     data: {
       users: rows,
     },
