@@ -1,13 +1,11 @@
 const catchAsync = require("../utils/catchAsync");
 const { Post, Category } = require("../models");
-const { pagination } = require("../utils/helper");
 const { Sequelize } = require("sequelize");
 const sequelize = Sequelize;
 const { getFirestore } = require("firebase-admin/firestore");
 
 exports.getPosts = catchAsync(async (req, res, next) => {
   const rows = await Post.findAll({
-    ...pagination(req),
     order: sequelize.literal("createdAt	DESC"),
   });
 
@@ -22,7 +20,6 @@ exports.getPosts = catchAsync(async (req, res, next) => {
 
 exports.getPostsByCategoryId = catchAsync(async (req, res, next) => {
   const rows = await Post.findAll({
-    ...pagination(req),
     where: {
       categoryId: req.params.categoryId,
     },
