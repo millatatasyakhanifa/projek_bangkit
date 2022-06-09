@@ -10,7 +10,7 @@ const { uploadSingle } = require("../../utils/files");
 
 const auth = require("../../middlewares/auth");
 
-router.route("/").get(auth("user"), getUsers);
+router.route("/").get(auth(), getUsers);
 router.route("/session").get(auth(), getUserByToken);
 
 router.put(
